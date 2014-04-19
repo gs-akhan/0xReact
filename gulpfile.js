@@ -3,9 +3,11 @@ var gulp = require ('gulp');
 var jade = require('gulp-jade');
 var livereload = require('gulp-livereload');
 var browserify = require('gulp-browserify');
+var rename = require("gulp-rename");
 var lr = require('tiny-lr');
 lrserver = lr();
 var ecstatic = require ('ecstatic');
+var react = require('gulp-react')
 
 var lrport = 35729,port=8080;
 
@@ -25,6 +27,8 @@ gulp.task('templates', function() {
 gulp.task('coffee', function() {
     gulp.src(path.scripts, { read: false })
         .pipe(browserify({transform: ['coffeeify'], extensions: ['.coffee','.js']}))
+        .pipe(rename('app.jsx'))
+        .pipe(react())
         .pipe(gulp.dest('dist/'))
         .pipe(livereload(lrserver));
 });

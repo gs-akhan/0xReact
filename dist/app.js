@@ -1,3 +1,4 @@
+/** @jsx React.DOM */
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // shim for using process in browser
 
@@ -17392,19 +17393,17 @@ module.exports = warning;
 module.exports = require('./lib/React');
 
 },{"./lib/React":25}],137:[function(require,module,exports){
-var Hello, R, React;
+var React, Test;
 
 React = require('react');
 
-R = React.DOM;
-
-Hello = React.createClass({
+Test = React.createClass({displayName: 'Test',
   render: function() {
-    return R.div({}, 'Hello World');
+    return React.DOM.h1(null, "Hi there 0x4139");
   }
 });
 
-React.renderComponent(Hello({}), document.getElementById('container'));
+React.renderComponent(Test(null), document.getElementById('container'));
 
 
 },{"react":136}]},{},[137])
